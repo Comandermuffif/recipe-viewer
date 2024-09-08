@@ -5,5 +5,5 @@ export default interface RecipeData {
     duration?: number,
     ingredients?: string[],
     instructions?: string[],
-    notes?: string,
+    notes?: string[],
 };

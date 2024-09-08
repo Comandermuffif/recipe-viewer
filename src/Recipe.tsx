@@ -31,8 +31,11 @@ export default function Recipe(data:RecipeData) {
             {data.instructions?.map((line) => <li>{line}</li>)}
           </ol>
         </Grid2>
-        <Grid2 size={12} padding={2} border={1} sx={{ borderStyle: 'dashed' }} hidden={!data.notes}>
-          Notes: {data.notes}
+        <Grid2 size={12} padding={1} border={1} sx={{ borderStyle: 'dashed' }} hidden={!data.notes}>
+          Notes:
+          <ul>
+            {data.notes?.map((line) => <li>{line}</li>)}
+          </ul>
         </Grid2>
       </Grid2>
     </div>
