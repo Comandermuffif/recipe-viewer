@@ -1,37 +1,36 @@
 import { Grid2, Typography } from '@mui/material';
 import RecipeData from './types.ts';
+import './Recipe.css';
 
 export default function Recipe(data:RecipeData) {
   return (
     <div>
       <Grid2 container spacing={1}>
-        <Grid2 size={12} overflow={'clip'} height={'1in'} hidden={!data.image} sx={{
-          backgroundSize: 'cover',
+        <Grid2 size={12} className='image' hidden={!data.image} sx={{
           backgroundImage: `url(${data.image})`,
-          backgroundPositionY: 'center',
         }}/>
         <Grid2 size={12}>
-          <Typography variant='h3' align='center'>{data.title}</Typography>
+          <Typography variant='h3' align='center' >{data.title ?? 'Unknown'}</Typography>
         </Grid2>
         <Grid2 size={6}>
-          <Typography variant='subtitle1' align='right'>Servings: {data.servings ?? 0}</Typography>
+          <Typography variant='subtitle1' align='right'>Servings: {data.servings ?? 'Unknown'}</Typography>
         </Grid2>
         <Grid2 size={6}>
-          <Typography variant='subtitle1' align='left'>Duration: {data.duration ?? 0} minutes</Typography>
+          <Typography variant='subtitle1' align='left'>Duration: {data.duration ?? 'Unknown'}</Typography>
         </Grid2>
         <Grid2 size={4}>
           <Typography variant='h4' align='center'>Ingredients</Typography>
-          <ul>
-            {data.ingredients?.map((line) => <li>{line}</li>)}
+          <ul className='ingredients'>
+            {(data.ingredients ?? ['Unknown']).map((line) => <li key={line}>{line}</li>)}
           </ul>
         </Grid2>
         <Grid2 size={8}>
           <Typography variant='h4' align='center'>Directions</Typography>
           <ol>
-            {data.instructions?.map((line) => <li>{line}</li>)}
+            {(data.instructions ?? ['Unknown']).map((line) => <li>{line}</li>)}
           </ol>
         </Grid2>
-        <Grid2 size={12} padding={1} border={1} sx={{ borderStyle: 'dashed' }} hidden={!data.notes}>
+        <Grid2 size={12} className='notes' hidden={!data.notes}>
           Notes:
           <ul>
             {data.notes?.map((line) => <li>{line}</li>)}

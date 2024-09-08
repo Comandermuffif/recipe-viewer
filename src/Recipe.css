@@ -1,0 +1,16 @@
+.image {
+    height: 1in;
+    overflow: hidden;
+    background-size: cover;
+    background-position-y: center;
+}
+
+.ingredients {
+    list-style: none;
+}
+
+.notes {
+    padding: 1px;
+    border: 1px;
+    border-style: dashed;
+}

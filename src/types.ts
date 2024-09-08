@@ -1,8 +1,8 @@
 export default interface RecipeData {
     title?: string,
     image?: string,
-    servings?: number,
-    duration?: number,
+    servings?: string,
+    duration?: string,
     ingredients?: string[],
     instructions?: string[],
     notes?: string[],
